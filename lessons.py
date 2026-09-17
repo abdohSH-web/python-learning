@@ -409,98 +409,183 @@
 #     print(f'You lost\nthe correct word was: {random_word}\n{HANGMANPICS[-1]}')
 # if '__' not in display:
 #     print("You won")    
-import random
-print("""
-             𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 ❞𝑯𝒂𝒏𝒈 𝑴𝒂𝒏❞
-""")
-words = ('bread sugar milk water eggs bananas beaf').split()
-random_word = random.choice(words)
-display = ['__'] * len(random_word)
-print(' '.join(display))
-HANGMANPICS = ['''
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========''', '''
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========''']
-trials = 6
-letters = []
-print(f'\n{HANGMANPICS[0]}')
-while '__' in display and trials > 0:
-    guessed = input("Please guess a letter...  ").lower()
-    if guessed in letters:
-        print(f"You have already chosen {guessed}, please try again")
-        continue
-    letters.append(guessed)
-    if guessed not in random_word:
-        trials -= 1
-        print(f'{HANGMANPICS[6-trials]}')
-        print(f"You have {trials} more trials")
-    for position in range(len(random_word)):
-        if random_word[position] == guessed:
-            display[position] = guessed
-    print(' '.join(display)) 
-if trials == 0:
-    print(f'''
-         You lost!
-         {HANGMANPICS[-1]}
-''')         
-if '__' not in display:
-    print(f'''
-         You won!
+# import random
+# print("""
+#              𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 ❞𝑯𝒂𝒏𝒈 𝑴𝒂𝒏❞
+# """)
+# words = ('bread sugar milk water eggs bananas beaf').split()
+# random_word = random.choice(words)
+# display = ['__'] * len(random_word)
+# print(' '.join(display))
+# HANGMANPICS = ['''
+#   +---+
+#   |   |
+#       |
+#       |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#       |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#   |   |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|   |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#  /    |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#  / \  |
+#       |
+# =========''']
+# trials = 6
+# letters = []
+# print(f'\n{HANGMANPICS[0]}')
+# while '__' in display and trials > 0:
+#     guessed = input("Please guess a letter...  ").lower()
+#     if guessed in letters:
+#         print(f"You have already chosen {guessed}, please try again")
+#         continue
+#     letters.append(guessed)
+#     if guessed not in random_word:
+#         trials -= 1
+#         print(f'{HANGMANPICS[6-trials]}')
+#         print(f"You have {trials} more trials")
+#     for position in range(len(random_word)):
+#         if random_word[position] == guessed:
+#             display[position] = guessed
+#     print(' '.join(display)) 
+# if trials == 0:
+#     print(f'''
+#          You lost!
+#          {HANGMANPICS[-1]}
+# ''')         
+# if '__' not in display:
+#     print(f'''
+#          You won!
          
-░██╗░░░░░░░██╗███████╗██╗░░░░░██╗░░░░░  ██████╗░░█████╗░███╗░░██╗███████╗██╗
-░██║░░██╗░░██║██╔════╝██║░░░░░██║░░░░░  ██╔══██╗██╔══██╗████╗░██║██╔════╝██║
-░╚██╗████╗██╔╝█████╗░░██║░░░░░██║░░░░░  ██║░░██║██║░░██║██╔██╗██║█████╗░░██║
-░░████╔═████║░██╔══╝░░██║░░░░░██║░░░░░  ██║░░██║██║░░██║██║╚████║██╔══╝░░╚═╝
-░░╚██╔╝░╚██╔╝░███████╗███████╗███████╗  ██████╔╝╚█████╔╝██║░╚███║███████╗██╗
-░░░╚═╝░░░╚═╝░░╚══════╝╚══════╝╚══════╝  ╚═════╝░░╚════╝░╚═╝░░╚══╝╚══════╝╚═╝
-''')      
-            
+# ░██╗░░░░░░░██╗███████╗██╗░░░░░██╗░░░░░  ██████╗░░█████╗░███╗░░██╗███████╗██╗
+# ░██║░░██╗░░██║██╔════╝██║░░░░░██║░░░░░  ██╔══██╗██╔══██╗████╗░██║██╔════╝██║
+# ░╚██╗████╗██╔╝█████╗░░██║░░░░░██║░░░░░  ██║░░██║██║░░██║██╔██╗██║█████╗░░██║
+# ░░████╔═████║░██╔══╝░░██║░░░░░██║░░░░░  ██║░░██║██║░░██║██║╚████║██╔══╝░░╚═╝
+# ░░╚██╔╝░╚██╔╝░███████╗███████╗███████╗  ██████╔╝╚█████╔╝██║░╚███║███████╗██╗
+# ░░░╚═╝░░░╚═╝░░╚══════╝╚══════╝╚══════╝  ╚═════╝░░╚════╝░╚═╝░░╚══╝╚══════╝╚═╝
+# ''')
+# def multiply(number):
+#     for i in range(1, 11)  :
+#         print(f'{i}x{number} = {number * i}')  
+# multiply(6)    
+# def information(age, name):
+#     print(f'Your name is {name}, and you are {age} years old.')    
+# information(age=20, name='Abdullah')            
+# import string
+# alphabet = string.ascii_lowercase + string.ascii_lowercase
+# word = input("Enter a word  ").lower()
+# encrypted_word =  ''
+# for letter in word:
+#     original_position = alphabet.index(letter)
+#     new_position = original_position + 2
+#     encrypted_word += alphabet[new_position]
+# print(f'Here is the encrypted word: {encrypted_word}')   
+# import string
+# alphabet = string.ascii_lowercase
+# word = input("Enter a word  ").lower()
+# encrypted_word =  ''
+# for letter in word:
+#     if letter not in alphabet:
+#         encrypted_word += letter
+#         continue
+#     original_position = alphabet.index(letter)
+#     new_position = (original_position + 2) % 26
+#     encrypted_word += alphabet[new_position]
+# print(f'Here is the encrypted word: {encrypted_word}')    
+# import string
+# alphabet = string.ascii_letters + string.ascii_letters
+# original_message = input('Enter a message:  ')
+# shift_number = int(input("Enter a shift number:  "))
+# encrypted_message = ''
+# for letter in original_message:
+#     if letter not in alphabet:
+#         encrypted_message += letter
+#         continue
+#     original_position = alphabet.index(letter)
+#     new_position = original_position + shift_number
+#     encrypted_message += alphabet[new_position]
+# print(encrypted_message) 
+
+# import string 
+# def encrypt(message, shift):
+#     alphabet = string.ascii_letters + string.ascii_letters
+
+#     encrypted_message = ''
+#     for letter in message:
+#         if letter not in alphabet:
+#             encrypted_message += letter
+#             continue
+#         original_position = alphabet.index(letter)
+#         new_position = original_position + shift
+#         encrypted_message += alphabet[new_position]
+#     print(encrypted_message)  
+
+# message = input("Please enter a message:   ")
+# shift_number = int(input('Enter a shift number:   '))
+# encrypt(message=message, shift= shift_number)
+
+
+
+import string 
+def decrypt(message, shift):
+    alphabet = string.ascii_letters + string.ascii_letters
+
+    decrypted_message = ''
+    for letter in message:
+        if letter not in alphabet:
+            decrypted_message += letter
+            continue
+        original_position = alphabet.index(letter)
+        new_position = original_position - shift
+        decrypted_message += alphabet[new_position]
+    print(decrypted_message)  
+
+message = input("Please enter the encrypted message:   ")
+shift_number = 5
+print("The shift number is [5] ")
+decrypt(message=message, shift= shift_number)
+
+
+
+
+
+
 
 
 
