@@ -328,13 +328,92 @@
 # 🎉🎉 You won! 🎉🎉
 # ********************
 # ''')    
+# import random
+# print("""
+# 𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 ❞𝑯𝒂𝒏𝒈 𝑴𝒂𝒏❞
+# """)
+# words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
+#          'coyote crow deer dog donkey duck eagle ferret fox frog goat '
+#          'wombat zebra ').split()
+# random_word = random.choice(words)
+# display = ['__'] * len(random_word)
+# print(' '.join(display))
+# HANGMANPICS = ['''
+#   +---+
+#   |   |
+#       |
+#       |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#       |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#   |   |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|   |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#       |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#  /    |
+#       |
+# =========''', '''
+#   +---+
+#   |   |
+#   O   |
+#  /|\  |
+#  / \  |
+#       |
+# =========''']
+# letters = []
+# trials = 6
+# print(HANGMANPICS[0])
+# while '__' in display and trials > 0:
+#     guessed = input("Please guess a letter.. ").lower()
+#     if guessed in letters:
+#         print(f"You have already chosen {guessed} before, try another letter")
+#         continue
+#     letters.append(guessed)
+#     if guessed not in random_word:
+#         trials -= 1
+#         print(HANGMANPICS[6-trials])
+#     for position in range(len(random_word)):
+#         if random_word[position] == guessed:
+#             display[position] = guessed
+#     print(' '.join(display))
+#     print(f"You have {trials} trials")    
+# if trials == 0:
+#     print(f'You lost\nthe correct word was: {random_word}\n{HANGMANPICS[-1]}')
+# if '__' not in display:
+#     print("You won")    
 import random
 print("""
-𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 ❞𝑯𝒂𝒏𝒈 𝑴𝒂𝒏❞
+             𝑾𝒆𝒍𝒄𝒐𝒎𝒆 𝒕𝒐 ❞𝑯𝒂𝒏𝒈 𝑴𝒂𝒏❞
 """)
-words = ('ant baboon badger bat bear beaver camel cat clam cobra cougar '
-         'coyote crow deer dog donkey duck eagle ferret fox frog goat '
-         'wombat zebra ').split()
+words = ('bread sugar milk water eggs bananas beaf').split()
 random_word = random.choice(words)
 display = ['__'] * len(random_word)
 print(' '.join(display))
@@ -388,27 +467,45 @@ HANGMANPICS = ['''
  / \  |
       |
 =========''']
-letters = []
 trials = 6
-print(HANGMANPICS[0])
+letters = []
+print(f'\n{HANGMANPICS[0]}')
 while '__' in display and trials > 0:
-    guessed = input("Please guess a letter.. ").lower()
+    guessed = input("Please guess a letter...  ").lower()
     if guessed in letters:
-        print(f"You have already chosen {guessed} before, try another letter")
+        print(f"You have already chosen {guessed}, please try again")
         continue
     letters.append(guessed)
     if guessed not in random_word:
         trials -= 1
-        print(HANGMANPICS[6-trials])
+        print(f'{HANGMANPICS[6-trials]}')
+        print(f"You have {trials} more trials")
     for position in range(len(random_word)):
         if random_word[position] == guessed:
             display[position] = guessed
-    print(' '.join(display))
-    print(f"You have {trials} trials")    
+    print(' '.join(display)) 
 if trials == 0:
-    print(f'You lost\nthe correct word was: {random_word}\n{HANGMANPICS[-1]}')
+    print(f'''
+         You lost!
+         {HANGMANPICS[-1]}
+''')         
 if '__' not in display:
-    print("You won")    
+    print(f'''
+         You won!
+         
+░██╗░░░░░░░██╗███████╗██╗░░░░░██╗░░░░░  ██████╗░░█████╗░███╗░░██╗███████╗██╗
+░██║░░██╗░░██║██╔════╝██║░░░░░██║░░░░░  ██╔══██╗██╔══██╗████╗░██║██╔════╝██║
+░╚██╗████╗██╔╝█████╗░░██║░░░░░██║░░░░░  ██║░░██║██║░░██║██╔██╗██║█████╗░░██║
+░░████╔═████║░██╔══╝░░██║░░░░░██║░░░░░  ██║░░██║██║░░██║██║╚████║██╔══╝░░╚═╝
+░░╚██╔╝░╚██╔╝░███████╗███████╗███████╗  ██████╔╝╚█████╔╝██║░╚███║███████╗██╗
+░░░╚═╝░░░╚═╝░░╚══════╝╚══════╝╚══════╝  ╚═════╝░░╚════╝░╚═╝░░╚══╝╚══════╝╚═╝
+''')      
+            
+
+
+
+
+
                
 
 
