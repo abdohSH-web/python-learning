@@ -542,6 +542,7 @@
 #     encrypted_message += alphabet[new_position]
 # print(encrypted_message) 
 
+
 # import string 
 # def encrypt(message, shift):
 #     alphabet = string.ascii_letters + string.ascii_letters
@@ -562,24 +563,186 @@
 
 
 
-import string 
-def decrypt(message, shift):
-    alphabet = string.ascii_letters + string.ascii_letters
+# import string 
+# def decrypt(message, shift):
+#     alphabet = string.ascii_letters + string.ascii_letters
 
-    decrypted_message = ''
-    for letter in message:
-        if letter not in alphabet:
-            decrypted_message += letter
-            continue
-        original_position = alphabet.index(letter)
-        new_position = original_position - shift
-        decrypted_message += alphabet[new_position]
-    print(decrypted_message)  
+#     decrypted_message = ''
+#     for letter in message:
+#         if letter not in alphabet:
+#             decrypted_message += letter
+#             continue
+#         original_position = alphabet.index(letter)
+#         new_position = original_position - shift
+#         decrypted_message += alphabet[new_position]
+#     print(decrypted_message)  
 
-message = input("Please enter the encrypted message:   ")
-shift_number = 5
-print("The shift number is [5] ")
-decrypt(message=message, shift= shift_number)
+# message = input("Please enter the encrypted message:   ")
+# shift_number = 5
+# print("The shift number is [5] ")
+# decrypt(message=message, shift= shift_number)
+# the_red_queen_collection = {
+#     'title':'Red Queen',
+#     'author':'Aveyard',
+#     'year':2015,
+#     'pages': 383,
+#     'is_many': True,
+#     'rating': 4.1
+# }
+# print(the_red_queen_collection)
+# print(the_red_queen_collection['title'])
+# print(the_red_queen_collection.get('year'))
+# print(the_red_queen_collection.keys())
+# print(the_red_queen_collection.values())
+# framework1 = {
+#     'name': 'Abdullah',
+#     'age': 20,
+# }
+# framework2 = {
+#     'name': 'Muhammed',
+#     'age': 17,
+# }
+# framework3 = {
+#     'name': 'Tasneem',
+#     'age': 8,
+# }
+# new_framework = {
+#     'first': framework1,
+#     'second': framework2,
+#     'third': framework3,
+# }
+# print(framework1)
+# print(framework2)
+# print(framework3)
+# print(new_framework)
+# book = {
+#     'title':'Red Queen',
+#     'author':'Aveyard',
+#     'year':2015,
+#     'pages': 383,
+#     'is_many': True,
+#     'rating': 4.1
+# }
+# print(book)
+# book.update({'status': 'done'})
+# book.clear()
+# b = book.copy()
+# print(book)
+# print(book.setdefault('complete year', 2026))
+# print('=' * 40)
+# allitems = book.items()
+# book['status'] = 'good'
+# # print(book.popitem())
+# print('=' * 40)
+# print(book)
+# print(allitems)
+# counting = ('my first key','my second key','my third key')
+# item = 'x'
+# print(dict.fromkeys(counting, item))
+# class House:
+#     room = ''
+#     size = ''
+# the_small_room = House()
+# the_small_room.room = 'المحظرة الصغيرة'
+# the_small_room.size = 'medium'
+
+# the_large_room = House()
+# the_large_room.room = 'المحظرة الكبيرة'
+# the_large_room.size  = 'big'
+
+# print(the_large_room.size)
+# print(House())
+
+# class Book:
+#     def __init__(self, title, author):
+#         self.title = title
+#         self.author = author
+# first_book = Book('the mother of dragons', 'Abdullah Shaaib')
+# class Profile:
+#     def __init__(self, user_name, email, learning_language):
+#         self.user_name = user_name
+#         self.email = email
+#         self.learning_language = learning_language
+
+# user1 = Profile('Abdulllah', 'abdohshoaib@gmail.com', 'Python')
+# user2 = Profile('Muhammed', 'mo@gmail.com', 'C#')
+# user3 = Profile('Ahmed', 'ahmed77@gmail.com', 'Html')
+
+# print(
+#     user1.user_name
+    
+# )
+# #Homework2
+# class Chit_Chat():
+#     def __init__(self, sender, reciever, message, date):
+#         self.sender = sender
+#         self.reciever = reciever
+#         self.message = message
+#         self.date = date 
+
+# class Product:
+#     def __init__(self, name, price, description, rate):
+#         self.name = name 
+#         self.price = price 
+#         self.description = description 
+#         self.rate = rate 
+
+# product1 = Product('laptop Lenovo Thinkpad L14', '$1200','laptop',7.2)
+
+# class Movies:
+#     def __init__(self, title, director, release_year, genre):
+#         self.title = title 
+#         self.director = director 
+#         self.release_year = release_year
+#         self.genre = genre 
+#     def display(self):
+#         print(f'the movie name is: {self.title}')    
+#         print(f'the director: {self.director}')    
+#         print(f'it was released on {self.release_year}')    
+#         print(f'the genre: {self.genre}')    
+#     def change_director(self, new_director):
+#         self.director = new_director   
+# first_movie = Movies('Inception','Christopher Nolan',2010 ,'Sci-Fi')     
+# second_movie = Movies('The GodFather','Francis Ford Coppola',1927 ,'Crime')     
+# third_movie = Movies('Parasite','Bong Joon-ho',2019 ,'Thriller') 
+# print("Movies List")  
+# print('=' * 50)  
+# first_movie.display()
+# second_movie.display()
+# third_movie.display()
+# print('=' * 50)
+# first_movie.change_director('Shokry Sarhan')
+# second_movie.change_director('Ajmed Mazhar')
+# third_movie.change_director('Isamel Yassin')
+# first_movie.display()
+# second_movie.display()
+# third_movie.display()
+
+class User:
+    def __init__(self, first_name, last_name, email, password, status = 'inactive'):
+        self.first_name = first_name 
+        self.last_name = last_name 
+        self.email = email 
+        self.password = password 
+        self.status = status
+    def display(self):
+        print(self.first_name)
+        print(self.last_name)
+        print(self.email)
+        print(f"{'*' * len(self.password)}")
+
+            
+def create_user():
+    first_name = input("What's your first name? ")
+    last_name = input("What's your last name? ")
+    email = input("Enter your email ")
+    password = input("Choose a password ")
+    return User(first_name, last_name, email, password, status='active')
+
+user1 = create_user()
+user1.display()
+
+
 
 
 
