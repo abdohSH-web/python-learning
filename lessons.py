@@ -718,29 +718,208 @@
 # second_movie.display()
 # third_movie.display()
 
-class User:
-    def __init__(self, first_name, last_name, email, password, status = 'inactive'):
-        self.first_name = first_name 
-        self.last_name = last_name 
-        self.email = email 
-        self.password = password 
-        self.status = status
-    def display(self):
-        print(self.first_name)
-        print(self.last_name)
-        print(self.email)
-        print(f"{'*' * len(self.password)}")
+# class User:
+#     def __init__(self, first_name, last_name, email, password, status = 'inactive'):
+#         self.first_name = first_name 
+#         self.last_name = last_name 
+#         self.email = email 
+#         self.password = password 
+#         self.status = status
+#     def display(self):
+#         print(self.first_name)
+#         print(self.last_name)
+#         print(self.email)
+#         print(f"{'*' * len(self.password)}")
 
             
-def create_user():
-    first_name = input("What's your first name? ")
-    last_name = input("What's your last name? ")
-    email = input("Enter your email ")
-    password = input("Choose a password ")
-    return User(first_name, last_name, email, password, status='active')
+# def create_user():
+#     first_name = input("What's your first name? ")
+#     last_name = input("What's your last name? ")
+#     email = input("Enter your email ")
+#     password = input("Choose a password ")
+#     return User(first_name, last_name, email, password, status='active')
 
-user1 = create_user()
-user1.display()
+# user1 = create_user()
+# user1.display()
+# class Recipe:
+#     def __init__(self, name, ingredients, time, instructions):
+#         self.name = name 
+#         self.ingredients = ingredients 
+#         self.time = time 
+#         self.instructions = instructions
+#     def display(self):
+#         print('Displaying recipe.....')
+#         print(f"The recipe name: {self.name}")
+#         print(f"Ingredients: {" ".join(self.ingredients)}")
+#         print(f'Cooking time: {self.time}')
+#         print(f'Instructions: {self.instructions}')
+
+# def store():
+#     name = input("Enter recipe name: ")        
+#     ingredients = input("Enter ingredients (comma-separated): ").split(', ')        
+#     time = input("Enter cooking time: ")        
+#     instructions = input("Enter cooking instructions: ")  
+#     return Recipe(name, ingredients, time, instructions)
+# recipe1 = store()
+# recipe1.display()
+
+
+
+# import time
+# class UserManagement:
+#     def __init__(self, first_name, last_name, email, password, status = 'inactive'):
+#         self.first_name = first_name 
+#         self.last_name = last_name 
+#         self.email = email
+#         self.password = password 
+#         self.status = status
+#     def display(self):
+#         print(f"First_name: {self.first_name}")    
+#         print(f"Last_name: {self.last_name}")    
+#         print(f"Email: {self.email}")    
+#         print(f"Password: {'*' * len(self.first_name)}")    
+#         print(f"Status: {self.status}")  
+#         print('='*50)  
+# def create_user():
+#     first_name = input("Enter first_name: ")        
+#     last_name = input("Enter last_name: ")        
+#     email = input("Enter your email: ")        
+#     first_name = input("Create a password: ") 
+#     return UserManagement(first_name, last_name, email, any, status='inactive')  
+# print("Welcome to User Management\n")
+# users_list = []
+# while True:
+#     choice = input("""
+# Choose an action:\n
+#     1.Add a new user.
+#     2.Display all users.
+#     3.Exit.    
+#     \n
+# Enter your choice: \n\n     
+# """)    
+#     if choice == '1':
+#         new_user = create_user()
+#         print("User added successfully..")
+#         users_list.append(new_user)
+#         input("Press Enter to return to the main menu")
+#     elif choice == '2':
+#         if not users_list:
+#             print("Unfound user")
+#         else:
+#             print("Displaying all users....")
+#             for user in users_list:
+#                 user.display() 
+#                 print('-' * 20)
+#                 time.sleep(1)
+#             time.sleep(3)    
+#     elif choice == '3':
+#         print("Goodbye")
+#         break
+#     else:
+#         print("Invalid input.. Try again")            
+
+
+
+import time
+class GymMembership:
+    def __init__(self, first_name, last_name, membership_ID, status = 'inactive'):
+        self.first_name = first_name 
+        self.last_name = last_name 
+        self.membership_ID = membership_ID
+        self.status = status
+    def display(self):
+        print(f"First_name: {self.first_name}")    
+        print(f"Last_name: {self.last_name}")    
+        print(f"Membership ID: {self.membership_ID}")      
+        print(f"Status: {self.status}")  
+        print('='*50)  
+def create_user():
+    first_name = input("Enter first_name: ")        
+    last_name = input("Enter last_name: ")        
+    membership_ID = input("Enter Membership ID: ")
+    staus = input("Enter member status or click Enter: ")        
+    return GymMembership(first_name, last_name, membership_ID, status='inactive') 
+print("Welcome to the Gym Membership Management\n")
+members_list = []
+while True:
+    choice = input("""
+Choose an action:\n
+    1.Add a new member.
+    2.Display all members.
+    3.Search for a member.
+    4.Exit.    
+    \n
+Enter your choice: \n\n     
+""")    
+    if choice == '1':
+        new_member = create_user()
+        print("User added successfully..")
+        members_list.append(new_member)
+        input("Press Enter to return to the main menu")
+    elif choice == '2':
+        if not members_list:
+            print("Unfound user")
+        else:
+            print("Displaying all users....")
+            time.sleep(2)
+            for user in members_list:
+                user.display() 
+                print('-' * 20)
+                time.sleep(1)
+            time.sleep(3)   
+    elif choice == '3':
+        choice2 = input("""
+Search by:\n
+      1.Membership ID.
+      2.Membership name.
+      3.Membership status.
+      
+Enter your choice:      
+""")     
+        if choice2 == '1':
+            member_id = input("Enter the membership ID to search: ")  
+            if member_id not in members_list:
+                print("Unfound ID. Please enter a valid ID.. ")
+                continue
+            for member in members_list:
+                member.membership_ID == member_id :
+                
+                
+
+        elif choice2 == '2':
+            member_name = input("Enter the membership name to search: ")
+            if member_name not in members_list:
+                print("Unfound name. Please enter a valid name.. ")
+                continue
+            #print the user that has that name
+        elif choice2 == '3'    :
+            member_status = input('Enter the membership status to search: ')
+            if member_status not in members_list:
+                print("Unfound status. Please enter a valid status.. ")
+                continue
+            #print the user that has that name
+        else:
+            print("Invalid input.. Try again")    
+    elif choice == '4':
+        print("Goodbye")
+        break
+    else:
+        print("Invalid input.. Try again")            
+
+
+
+        
+            
+
+
+   
+
+
+
+
+             
+
+
 
 
 
