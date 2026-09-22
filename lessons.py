@@ -820,93 +820,230 @@
 
 
 
-import time
-class GymMembership:
-    def __init__(self, first_name, last_name, membership_ID, status = 'inactive'):
-        self.first_name = first_name 
-        self.last_name = last_name 
-        self.membership_ID = membership_ID
-        self.status = status
-    def display(self):
-        print(f"First_name: {self.first_name}")    
-        print(f"Last_name: {self.last_name}")    
-        print(f"Membership ID: {self.membership_ID}")      
-        print(f"Status: {self.status}")  
-        print('='*50)  
-def create_user():
-    first_name = input("Enter first_name: ")        
-    last_name = input("Enter last_name: ")        
-    membership_ID = input("Enter Membership ID: ")
-    staus = input("Enter member status or click Enter: ")        
-    return GymMembership(first_name, last_name, membership_ID, status='inactive') 
-print("Welcome to the Gym Membership Management\n")
-members_list = []
-while True:
-    choice = input("""
-Choose an action:\n
-    1.Add a new member.
-    2.Display all members.
-    3.Search for a member.
-    4.Exit.    
-    \n
-Enter your choice: \n\n     
-""")    
-    if choice == '1':
-        new_member = create_user()
-        print("User added successfully..")
-        members_list.append(new_member)
-        input("Press Enter to return to the main menu")
-    elif choice == '2':
-        if not members_list:
-            print("Unfound user")
-        else:
-            print("Displaying all users....")
-            time.sleep(2)
-            for user in members_list:
-                user.display() 
-                print('-' * 20)
-                time.sleep(1)
-            time.sleep(3)   
-    elif choice == '3':
-        choice2 = input("""
-Search by:\n
-      1.Membership ID.
-      2.Membership name.
-      3.Membership status.
+# import time
+# import os
+# class GymMembership:
+#     def __init__(self, first_name, last_name, membership_ID, status = 'inactive'):
+#         self.first_name = first_name 
+#         self.last_name = last_name 
+#         self.membership_ID = membership_ID
+#         self.status = status
+#     def display(self):
+#         print(f"First_name: {self.first_name}")    
+#         print(f"Last_name: {self.last_name}")    
+#         print(f"Membership ID: {self.membership_ID}")      
+#         print(f"Status: {self.status}")  
+#         print('='*50)
+# def clear_screen():
+#     os.system('cls' if os.name == 'nt' else 'clear')          
+# def create_user():
+#     first_name = input("Enter first_name: ")        
+#     last_name = input("Enter last_name: ")        
+#     membership_ID = input("Enter Membership ID: ")
+#     status = input("Enter member status or click Enter: ").lower()
+#     if not status:
+#         status = 'inactive'        
+#     return GymMembership(first_name, last_name, membership_ID, status=status) 
+# members_list = []
+# while True:
+#     clear_screen()
+#     print('='  * 50)
+#     print("Welcome to the Gym Membership Management\n")
+#     print('='  * 50)
+#     choice = input("""
+# Choose an action:\n
+#     1.Add a new member.
+#     2.Display all members.
+#     3.Search for a member.
+#     4.Exit.    
+#     \n
+# Enter your choice: \n\n     
+# """)    
+#     if choice == '1':
+#         new_member = create_user()
+#         print("User added successfully..")
+#         members_list.append(new_member)
+#         input("Press Enter to return to the main menu")
+#     elif choice == '2':
+#         if not members_list:
+#             print("Unfound user")
+#         else:
+#             print("Displaying all users....")
+#             time.sleep(2)
+#             for user in members_list:
+#                 user.display() 
+#                 print('-' * 20)
+#                 time.sleep(1)
+#             time.sleep(3)   
+#     elif choice == '3':
+#         choice2 = input("""
+# Search by:\n
+#       1.Membership ID.
+#       2.Membership name.
+#       3.Membership status.
       
-Enter your choice:      
-""")     
-        if choice2 == '1':
-            member_id = input("Enter the membership ID to search: ")  
-            if member_id not in members_list:
-                print("Unfound ID. Please enter a valid ID.. ")
-                continue
-            for member in members_list:
-                member.membership_ID == member_id :
-                
-                
+# Enter your choice:      
+# """)     
+#         if choice2 == '1':
+#             clear_screen()
+#             member_id = input("Enter the membership ID to search: ")  
+#             found = False
+#             for member in members_list:
+#                 if member.membership_ID == member_id :
+#                     print("Searching....")
+#                     time.sleep(2)
+#                     member.display()
+#                     time.sleep(2)
+#                     found = True
+#                     break
+#             if not found:
+#                 print("Unfound ID. Please enter a valid ID..")    
+#         elif choice2 == '2':
+#             clear_screen()
+#             member_name = input("Enter the membership name to search: ").lower()
+#             found = False
+#             for member in members_list:
+#                 full_name = f'{member.first_name}{member.last_name}'
+#                 if (member_name in member.first_name.lower() or
+#                 member_name in member.last_name.lower() or
+#                 member_name in full_name):
+#                     time.sleep(2)
+#                     member.display()
+#                     time.sleep(2)
+#                     member.display()
+#                     found = True
+#             if not found:
+#                 print("Unfound name. Please enter a valid name..")        
+#         elif choice2 == '3'    :
+#             clear_screen()
+#             member_status = input('Enter the membership status to search: ').lower()
+#             found = False
+#             for member in members_list:
+#                 if member.status == member_status:
+#                     time.sleep(2)
+#                     member.display()
+#                     time.sleep(2)
+#                     member.display()
+#                     found = True
+#             if not found:
+#                 print("Unfound status. Please entere a valid status..")        
+#         else:
+#             print("Invalid input.. Try again")    
+#     elif choice == '4':
+#         print("Goodbye")
+#         break
+#     else:
+#         print("Invalid input.. Try again")            
+# import random
+# from turtle import Turtle, Screen
+# sam = Turtle('turtle')
+# window = Screen()
+# sam.color('blue')
 
-        elif choice2 == '2':
-            member_name = input("Enter the membership name to search: ")
-            if member_name not in members_list:
-                print("Unfound name. Please enter a valid name.. ")
-                continue
-            #print the user that has that name
-        elif choice2 == '3'    :
-            member_status = input('Enter the membership status to search: ')
-            if member_status not in members_list:
-                print("Unfound status. Please enter a valid status.. ")
-                continue
-            #print the user that has that name
-        else:
-            print("Invalid input.. Try again")    
-    elif choice == '4':
-        print("Goodbye")
-        break
-    else:
-        print("Invalid input.. Try again")            
+
+# sam.circle(50)
 
 
+# window.exitonclick()
+# sam = Turtle()
+# window = Screen()
+
+# list_of_shapes = ['turtle','square','triangle','circle','arrow']
+# list_of_colors = ['green','red','porpule','gray','black','yellow']
+# list_of_sizes = [2,4,8,10,12,14]
+
+# def draw_a_square():
+#     for _ in range(4):
+#         sam.color(random.choice(list_of_colors))
+#         sam.shape(random.choice(list_of_shapes))
+#         sam.pensize(random.choice(list_of_sizes))
+#         sam.forward(100)
+#         sam.left(90)
+# draw_a_square()
+
+#customizing the screen
+# window = Screen()
+# window.setup(width=500, height=500)
+# window.bgcolor('black')
+
+#create first character
+# sam = Turtle()
+# sam.shape("turtle")
+# sam.color('green')
+# sam.pensize(5)
+# sam.speed('fast')
+
+#create second character
+# tom = Turtle()
+# tom.shape('arrow')
+# tom.color('yellow')
+# tom.pensize(4)
+# tom.speed('fast')
+
+#make the turtle move randomly
+#1: create lists of things to choose randomly from
+# my_distances = [20,30,50,60,80,100]
+# my_angles = [45,90,120,175]
+# my_loop_count = [5,10,20,30]
+#2: start making the objects move
+# for _ in range(4):
+#     tom.forward(random.choice(my_distances))
+#     tom.left(random.choice(my_angles))
+
+# for _ in range(10):
+#     sam.forward(random.choice(my_distances))
+#     sam.left(random.choice(my_angles))
+# def draw_random (turtle_name):
+#    for _ in range(random.choice(my_loop_count)):
+#       turtle_name.forward(random.choice(my_distances))
+#       turtle_name.left(random.choice(my_angles))
+
+
+from turtle import Turtle, Screen
+
+window = Screen()
+window.setup(width=500, height=500)
+window.bgcolor('black')
+
+sam = Turtle()
+sam.shape('turtle')
+sam.color('white')
+sam.pensize(3)
+sam.speed('fastest')
+
+# def draw_circle():
+#     sam.penup()
+#     sam.goto(-200,200)
+#     sam.pendown()
+#     for _ in range(10):
+#         sam.circle(50)
+#         sam.left(360/10)
+# def draw_square():
+#     sam.penup()
+#     sam.goto(0,0)
+#     sam.pendown()
+#     for _ in range(10):
+#         for _ in range(4):
+#             sam.forward(80)
+#             sam.left(90)        
+#         sam.left(360/10)     
+# def draw_triangle():
+#     sam.penup()
+#     sam.goto(200,-200)
+#     sam.pendown()
+#     for _ in range(10):
+#         for _ in range(3):
+#             sam.forward(80)
+#             sam.left(120)
+#         sam.left(360/10)
+
+# draw_circle()
+# draw_square()
+# draw_triangle()
+user_name = window.textinput('انتظر من فضلك','أدخل اسمك')
+sam.hideturtle()
+sam.write(f"welcome {user_name}", align='center',font=('arial',20,'bold'))
+window.exitonclick()      
 
         
             
