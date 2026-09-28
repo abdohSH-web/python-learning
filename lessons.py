@@ -999,17 +999,17 @@
 #       turtle_name.left(random.choice(my_angles))
 
 
-from turtle import Turtle, Screen
+# from turtle import Turtle, Screen
 
-window = Screen()
-window.setup(width=500, height=500)
-window.bgcolor('black')
+# window = Screen()
+# window.setup(width=500, height=500)
+# window.bgcolor('black')
 
-sam = Turtle()
-sam.shape('turtle')
-sam.color('white')
-sam.pensize(3)
-sam.speed('fastest')
+# sam = Turtle()
+# sam.shape('turtle')
+# sam.color('white')
+# sam.pensize(3)
+# sam.speed('fastest')
 
 # def draw_circle():
 #     sam.penup()
@@ -1040,10 +1040,118 @@ sam.speed('fastest')
 # draw_circle()
 # draw_square()
 # draw_triangle()
-user_name = window.textinput('انتظر من فضلك','أدخل اسمك')
-sam.hideturtle()
-sam.write(f"welcome {user_name}", align='center',font=('arial',20,'bold'))
-window.exitonclick()      
+# user_name = window.textinput('انتظر من فضلك','أدخل اسمك')
+# sam.hideturtle()
+# sam.write(f"welcome {user_name}", align='center',font=('arial',20,'bold'))
+# window.exitonclick()  
+
+
+# window = Screen()
+# window.bgcolor('white')
+# window.setup(width=800, height=800)
+# colors = ('green','red','black')
+# y_positions = (180,0,-180)
+# window.title('Turtle Race')
+# user_bet = window.textinput('Make your bet','Type the winner: (green) (blue) (red)')
+
+
+
+# turtles = []
+# for i in range(3):
+#     new_turtle = Turtle(shape='turtle')
+#     new_turtle.color(random.choice(colors[i]))
+#     new_turtle.goto(x=-380,y=random.choice(y_positions[i]))
+#     turtles.append(new_turtle)
+
+
+
+
+# sam.penup()
+# sam.goto(-380,0)
+# tom.penup()
+# tom.goto(-380,180)
+# mike.penup()
+# mike.goto(-380,-180)
+
+# play(sam)
+# play(tom)
+# play(mike)
+# if sam.xcor >=380:
+
+#  New Unit
+
+# from turtle import Turtle, Screen
+# window = Screen() 
+# window.setup(width=800, height=800)
+# window.bgcolor('black')
+# positions = [(-40,0),(-20,0),(0,0)]
+# turtles =[]
+# window.tracer(0)
+# for i in range(3):
+#     new_turtle = Turtle('square')
+#     new_turtle.color('white')
+#     new_turtle.penup()
+#     new_turtle.goto(positions[i])
+#     turtles.append(new_turtle)
+
+# window.update()
+
+# game_on = True
+# while game_on:
+#     for i in turtles:
+#         i.speed("slowest")
+#         i.forward(0.1)  
+#         window.update() 
+ 
+# make them all follow each other:
+# for _ in range(5):
+#     turtles[2].forward(100)
+#     turtles[2].left(90)
+#     turtles[1].goto(turtles[2].pos())
+#     turtles[0].goto(turtles[1].pos())
+
+#تحريك الثعبان كاملا
+from turtle import Turtle, Screen
+import random
+import time
+window = Screen() 
+window.setup(width=800, height=800)
+window.bgcolor('black')
+window.tracer(0)
+positions = [(-40,0),(-20,0),(0,0),(20,0),(40,0),(60,0),(80,0)]
+angles = (0,90,0,0)
+turtles = []
+# window.tracer(0)
+for i in range(len(positions)):
+    new_turtle = Turtle('square')
+    new_turtle.color('white')
+    new_turtle.penup()
+    new_turtle.goto(positions[i])
+    turtles.append(new_turtle)
+def up():
+    turtles[-1].setheading(90)
+game_on = True 
+while game_on:
+    for i in range(len(turtles) - 1 ):
+        turtles[i].goto(turtles[i+1].pos())
+    window.tracer(0)    
+    turtles[-1].forward(20)
+    turtles[-1].left(random.choice(angles))
+    window.update() 
+    time.sleep(0.1)   
+    window.listen()
+
+
+
+
+
+
+window.exitonclick()
+
+
+
+
+
 
         
             
